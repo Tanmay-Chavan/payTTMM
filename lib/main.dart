@@ -1,3 +1,5 @@
+//import 'dart:html';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,9 +26,9 @@ class MyApp extends StatelessWidget {
               textBaseline: TextBaseline.ideographic,
               children: <Widget>[
                 // 'images/circle-cropped.png'
-                SizedBox(
+                Container(
                   height:100,
-                ),
+                  child: Center(child: Text("payTTMM", style: TextStyle(fontFamily: 'Lobster', fontSize: 50),),),),
                 Image(
                   image: AssetImage('images/clipart499896.png'),
                   height: 75,
@@ -60,9 +62,9 @@ class MyApp extends StatelessWidget {
                             MaterialStateProperty.all(Colors.amber),
                         foregroundColor:
                             MaterialStateProperty.all(Colors.pinkAccent)),
-                    child: Text("LOG IN"),
+                    child: Text("LOG IN"),),
                   ),
-                ),
+
 
                 Container(
                   height: 10,
