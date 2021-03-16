@@ -71,7 +71,15 @@ flutter:
      fonts:
        - asset: fonts/Mitr/Mitr-Regular.ttf
        #- asset: fonts/Mitr/Mitr-Bold.ttf
+   - family: Lobster
+     fonts:
+       - asset: fonts/Lobster.ttf
 
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+
+
+
+
