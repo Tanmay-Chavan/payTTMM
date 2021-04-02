@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:payttmm1/models/user.dart';
 import 'package:payttmm1/screens/authenticate/authenticate.dart';
 import 'package:payttmm1/screens/home/home.dart';
+import 'package:provider/provider.dart';
 
 
 class Wrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //return start loading widget for the first 4 secs
-    //return Home or Authenticate widget depending on if the user is signed in or not
-    return Authenticate();
+    final user = Provider.of<User>(context);
+    print(user);
+
+    //return either Home or Authenticate widget
+    if (user == null){
+      return Authenticate();
+    }else{
+      return Home();
+    }
   }
 }
 
