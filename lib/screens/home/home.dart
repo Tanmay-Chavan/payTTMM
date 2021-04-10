@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:payttmm1/services/auth.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -9,7 +9,13 @@ class Home extends StatelessWidget {
       appBar: AppBar(
           title: Text('PayTTMM'),
         backgroundColor: Colors.pink[800],
-        actions: <Widget>[],
+        actions: <Widget>[
+          FlatButton.icon(
+            icon:Icon(Icons.person),
+            label:Text('Log Out'),
+            onPressed: () {},
+          )
+        ],
       ),
     );
   }
