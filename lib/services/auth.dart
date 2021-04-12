@@ -1,5 +1,6 @@
 import 'package:payttmm1/models/user.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:payttmm1/services/database.dart';
 
 class AuthService{
 
@@ -43,12 +44,12 @@ class AuthService{
     }
   }
   //register with email and password
-  Future registerWithEmailAndPassword(String email, String password) async {
+  Future registerWithEmailAndPassword(String email, String password,String username) async {
     try {
       AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
       FirebaseUser user = result.user;
       // create a new document for the user with the uid
-      //await DatabaseService(uid: user.uid).updateUserData('0','new crew member', 100);
+      await DatabaseServiceForUsers(uid: user.uid).updateUserData(username);
       return _userFromFireBaseUser(user);
     } catch (error) {
       print(error.toString());

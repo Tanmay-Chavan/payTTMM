@@ -18,7 +18,7 @@ class _RegisterState extends State<Register> {
   // text field state
   String email = '';
   String password = '';
-  //String username= '';
+  String username= '';
 
 
 
@@ -42,7 +42,7 @@ class _RegisterState extends State<Register> {
                   image: AssetImage('images/clipart499896.png'),
                   height: 75,
                 ),
-              /*
+
                 Container(
                   margin: EdgeInsets.fromLTRB(30, 70, 30, 30),
                   child: TextFormField(
@@ -57,9 +57,9 @@ class _RegisterState extends State<Register> {
                   ),
                 ),
 
-               */
+
                 Container(
-                  margin: EdgeInsets.fromLTRB(30, 70, 30, 30),
+                  margin: EdgeInsets.fromLTRB(30, 0, 30, 40),
                   child: TextFormField(
                     decoration: InputDecoration(
                         labelText: "email ID",
@@ -99,7 +99,7 @@ class _RegisterState extends State<Register> {
                     child: Text("SIGN UP"),
                     onPressed: () async {
                       if(_formKey.currentState.validate()){
-                        dynamic result= await _auth.registerWithEmailAndPassword(email, password);
+                        dynamic result= await _auth.registerWithEmailAndPassword(email, password, username);
                         if (result==null){
                           setState(()=> error = 'Please enter a valid email');
                         }
