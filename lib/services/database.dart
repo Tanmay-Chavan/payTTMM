@@ -33,4 +33,19 @@ class DatabaseServiceForUsers{
 
   //Find a friend method
 
+  List<Username> _usernamesFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.documents.map((doc){
+      return Username(
+          uid: doc.data['uid'],
+          username: doc.data['username']
+      );
+    }).toList();
+  }
+
+  //Get users doc stream
+  Stream<List<Username>> get usernames {
+    return userCollection.snapshots()
+        .map(_usernamesFromSnapshot);
+  }
+
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:payttmm1/screens/home/friend_finder.dart';
 import 'package:payttmm1/services/auth.dart';
 import 'package:payttmm1/models/user.dart';
 import 'package:payttmm1/services/database.dart';
@@ -12,11 +13,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final AuthService _auth = AuthService();
-  final _formKey = GlobalKey<FormState>();
 
   String username_received='';
-  String friend_id='';
-  String if_found='';
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +22,7 @@ class _HomeState extends State<Home> {
 
     return StreamBuilder<Username>(
       stream: DatabaseServiceForUsers(uid: user.uid).username,
-      builder: (context, snapshot){
+      builder: (context, snapshot){                        //Saves the name of logged in user
         if(snapshot.hasData){
           Username username= snapshot.data;
           username_received=username.username;
@@ -39,6 +37,11 @@ class _HomeState extends State<Home> {
             backgroundColor: Colors.pink[800],
             actions: <Widget>[
 
+              Text(
+                username_received,                  //Displays the username of logged in user
+                style: TextStyle(color: Colors.black, fontSize: 14.0),
+              ),
+
               FlatButton.icon(
                 icon:Icon(Icons.person),
                 label:Text('Log Out'),
@@ -48,58 +51,12 @@ class _HomeState extends State<Home> {
               )
             ],
           ),
+
+
+
           body: Container(
 
-            child: Form(
-              key: _formKey,
-
-              child: Column(
-                children: [
-                  Text(
-                          username_received,
-                          style: TextStyle(color: Colors.blueAccent, fontSize: 14.0),
-                        ),
-                  SizedBox(
-                    height:20,
-                  ),
-
-                  TextFormField(
-                    decoration: InputDecoration(
-                        labelText: "Enter a username",
-                        fillColor: Colors.white,
-                        filled: true),
-                    validator: (val) => val.isEmpty ? 'Enter an username' : null,
-                    onChanged: (val) {
-                      setState(() => friend_id = val);
-                    },
-                  ),
-                  SizedBox(
-                    height:20,
-                  ),
-                  RaisedButton(
-                      color: Colors.red[50],
-                      child: Text(
-                        'Find',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onPressed: () async {
-                        //Function call of friend method
-                      }
-                  ),
-                  SizedBox(
-                    height:20,
-                  ),
-                  /*
-                  //This text is result of whether friend is found or not
-                  Text(
-                    if_found,
-                    style: TextStyle(color: Colors.black, fontSize: 14.0),
-                  )
-                  */
-
-                ],
-              ),
-            ),
+            child: FriendFinder()       //Widget to search another user
           )
         );
       }
