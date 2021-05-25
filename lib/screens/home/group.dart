@@ -78,7 +78,14 @@ class _GroupState extends State<Group> {
                     ),
 
                     Container(
-                      color: Colors.blue[700],
+
+
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                          color: Colors.blue[700],
+
+                      ),
+
                       child: Column(
                         children: [
                           Container(
@@ -108,6 +115,11 @@ class _GroupState extends State<Group> {
 
                           Container(
                             margin: EdgeInsets.fromLTRB(20, 10, 20, 12),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: Colors.blue[700],
+
+                            ),
                             child: TextFormField(
 
                               //Accepts username to search
