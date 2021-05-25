@@ -78,6 +78,9 @@ flutter:
    - family: Lobster
      fonts:
        - asset: fonts/Lobster.ttf
+   - family: Comics
+     fonts:
+       - asset: fonts/BackIssuesBB_reg.ttf
 
   #
   # For details regarding fonts from package dependencies,

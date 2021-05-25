@@ -4,6 +4,7 @@ import 'package:payttmm1/services/auth.dart';
 
 class SignIn extends StatefulWidget {
 
+
   final Function toggleView;
   SignIn({ this.toggleView });
   @override
@@ -122,7 +123,8 @@ class _SignInState extends State<SignIn> {
                 SizedBox(height: 12.0),
                 Text(
                   error,
-                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                  style: TextStyle(color: Colors.red, fontSize: 14.0,),
+                  textAlign: TextAlign.center,
                 )
               ],
             ),

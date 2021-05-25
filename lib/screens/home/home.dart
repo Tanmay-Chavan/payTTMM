@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:payttmm1/screens/home/friend_finder.dart';
 import 'package:payttmm1/services/auth.dart';
 import 'package:payttmm1/models/user.dart';
@@ -6,6 +7,8 @@ import 'package:payttmm1/services/database.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
+  static var members = [];
+  static var groupDone = false;
 //Home is changed from stateless to stateful widget just to test the find friend method
   @override
   _HomeState createState() => _HomeState();
@@ -21,6 +24,7 @@ class _HomeState extends State<Home> {
     User user = Provider.of<User>(context);
 
     return StreamBuilder<Username>(
+
       stream: DatabaseServiceForUsers(uid: user.uid).username,
       builder: (context, snapshot){                        //Saves the name of logged in user
         if(snapshot.hasData){
@@ -31,20 +35,23 @@ class _HomeState extends State<Home> {
           username_received='Not found';
         }
         return Scaffold(
-          backgroundColor: Colors.red[50],
+          backgroundColor: Colors.pinkAccent,
           appBar: AppBar(
-            title: Text('PayTTMM'),
+            title: Text('PayTTMM', style: TextStyle(fontFamily: 'Comics', color: Colors.amber), ),
             backgroundColor: Colors.pink[800],
             actions: <Widget>[
 
               Text(
                 username_received,                  //Displays the username of logged in user
-                style: TextStyle(color: Colors.black, fontSize: 14.0),
+                style: TextStyle(color: Colors.amber, fontSize: 14.0, fontFamily: 'Comics',),
+                textAlign: TextAlign.right,
+
               ),
 
               FlatButton.icon(
-                icon:Icon(Icons.person),
-                label:Text('Log Out'),
+
+                icon:Icon(Icons.person, color: Colors.amber,),
+                label:Text('Log Out', style: TextStyle(fontFamily: 'RobotoMono', color: Colors.amber), ),
                 onPressed: () async {
                   await _auth.signOut();
                 },

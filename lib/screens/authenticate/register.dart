@@ -48,6 +48,7 @@ class _RegisterState extends State<Register> {
                   child: TextFormField(
                     decoration: InputDecoration(
                         labelText: "Username",
+
                         fillColor: Colors.white,
                         filled: true),
                     validator: (val) => val.isEmpty ? 'Enter an username' : null,
@@ -96,7 +97,7 @@ class _RegisterState extends State<Register> {
                         MaterialStateProperty.all(Colors.pinkAccent),
                         foregroundColor:
                         MaterialStateProperty.all(Colors.amber)),
-                    child: Text("SIGN UP"),
+                    child: Text("SIGN UP", style: TextStyle(fontFamily: 'Comics'),),
                     onPressed: () async {
                       if(_formKey.currentState.validate()){
                         dynamic result= await _auth.registerWithEmailAndPassword(email, password, username);
@@ -126,7 +127,7 @@ class _RegisterState extends State<Register> {
                         MaterialStateProperty.all(Colors.amber),
                         foregroundColor:
                         MaterialStateProperty.all(Colors.pinkAccent)),
-                    child: Text("LOG IN"),
+                    child: Text("LOG IN", style: TextStyle(fontFamily: 'Comics'),),
                   ),
                 ),
 
@@ -134,7 +135,7 @@ class _RegisterState extends State<Register> {
                 SizedBox(height: 12.0),
                 Text(
                   error,
-                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                  style: TextStyle(color: Colors.red, fontSize: 14.0,fontFamily: 'Comics'),
                 )
               ],
             ),
