@@ -80,7 +80,7 @@ flutter:
        - asset: fonts/Lobster.ttf
    - family: Comics
      fonts:
-       - asset: fonts/BackIssuesBB_reg.ttf
+       - asset: fonts/ComicRelief.ttf                         # BackIssuesBB_reg.ttf
 
   #
   # For details regarding fonts from package dependencies,

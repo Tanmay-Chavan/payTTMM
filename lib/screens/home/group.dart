@@ -67,6 +67,7 @@ class _GroupState extends State<Group> {
 
               margin: EdgeInsets.fromLTRB(20, 40, 20, 30),
 
+
               child: Form(
                 key: _formKey,
 
@@ -83,15 +84,14 @@ class _GroupState extends State<Group> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                           color: Colors.blue[700],
-
                       ),
+                      height: 220,
 
                       child: Column(
                         children: [
                           Container(
-                            margin: EdgeInsets.fromLTRB(20, 12, 20, 0),
+                            margin: EdgeInsets.fromLTRB(20, 30, 20, 0),
                             child: TextFormField(
-                            //Accepts username to search
                             style: TextStyle(fontFamily: 'Comics',fontSize: 18,),
                             decoration: InputDecoration(
 
@@ -152,9 +152,8 @@ class _GroupState extends State<Group> {
                         onPressed: () async {
                         }
                     ),
-
                     SizedBox(
-                      height: 40,
+                      height: 20,
                     ),
 
                     Container(
@@ -171,10 +170,6 @@ class _GroupState extends State<Group> {
                         highlightColor: Colors.lightGreenAccent,
                     ),),),
 
-                    SizedBox(
-                      height: 10,
-                    ),
-
                     Container(
                       //alignment: Alignment.centerLeft,
                       width: 800,
@@ -189,9 +184,6 @@ class _GroupState extends State<Group> {
                         onPressed: () => setState(() => pressAttention1 = !pressAttention1),
                       ),),),
 
-                    SizedBox(
-                      height: 20,
-                    ),
                     Container(
                       //alignment: Alignment.centerLeft,
                       width: 800,
