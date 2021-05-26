@@ -14,6 +14,8 @@ class Group extends StatefulWidget {
   _GroupState createState() => _GroupState();
 }
 
+int totalBill=0;
+int currValue = 0;
 class _GroupState extends State<Group> {
   final _formKey = GlobalKey<FormState>();
 
@@ -25,6 +27,10 @@ class _GroupState extends State<Group> {
   bool pressAttention2 = false;
   bool pressAttention3 = false;
   bool pressAttention4 = false;
+
+  bool currTaskDone = false;
+
+  var _controller = TextEditingController();
 
   int length = Home.members.length;
   
@@ -65,7 +71,7 @@ class _GroupState extends State<Group> {
 
             body: Container(
 
-              margin: EdgeInsets.fromLTRB(20, 40, 20, 30),
+              margin: EdgeInsets.fromLTRB(20, 20, 20, 30),
 
 
               child: Form(
@@ -74,13 +80,15 @@ class _GroupState extends State<Group> {
                 child: Column(
                   children: [
 
+                    Container(child: Text("total amount: " + totalBill.toString(), style: TextStyle(fontFamily: 'Comics', fontSize: 25),
+                    ) ,
+                    ),
+
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
 
                     Container(
-
-
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                           color: Colors.blue[700],
@@ -90,8 +98,10 @@ class _GroupState extends State<Group> {
                       child: Column(
                         children: [
                           Container(
+
                             margin: EdgeInsets.fromLTRB(20, 30, 20, 0),
                             child: TextFormField(
+                              controller: _controller,
                             style: TextStyle(fontFamily: 'Comics',fontSize: 18,),
                             decoration: InputDecoration(
 
@@ -134,6 +144,10 @@ class _GroupState extends State<Group> {
                                   fillColor: Colors.white,
                                   filled: true),
 
+                              onChanged: (val) {
+                                setState(() => currValue = int.parse(val));
+                              },
+
                             ),),],
 
                       ),
@@ -150,6 +164,15 @@ class _GroupState extends State<Group> {
                           style: TextStyle(color: Colors.pink, fontFamily: 'Comics'),
                         ),
                         onPressed: () async {
+
+                              totalBill += currValue;
+                          currValue = 0;
+                          pressAttention1 = false;
+                          pressAttention2 = false;
+                          pressAttention3 = false;
+                          pressAttention4 = false;
+                          _controller.clear();
+                          setState(() => pressAttention = !pressAttention);
                         }
                     ),
                     SizedBox(
