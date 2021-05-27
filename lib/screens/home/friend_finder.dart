@@ -23,6 +23,7 @@ class _FriendFinderState extends State<FriendFinder> {
   String friend_id='';
   String if_found='';
   bool found=false;
+  var _controllerfriend;
 
 
 
@@ -50,6 +51,7 @@ class _FriendFinderState extends State<FriendFinder> {
                   ),
 
                   TextFormField(            //Accepts username to search
+                    controller: _controllerfriend,
                     style: TextStyle(fontFamily: 'Comics'),
                     decoration: InputDecoration(
                         labelText: "Enter a username",
@@ -74,6 +76,7 @@ class _FriendFinderState extends State<FriendFinder> {
                       ),
                       onPressed: () async {
                         found=false;
+                        _controllerfriend.clear();
 
                         for (var i = 0; i < all_users.length; i++) {    //Search the list for username to be found
                           if (all_users[i].username == friend_id) {
