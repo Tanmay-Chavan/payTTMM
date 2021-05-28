@@ -23,7 +23,7 @@ class _FriendFinderState extends State<FriendFinder> {
   String friend_id='';
   String if_found='';
   bool found=false;
-  var _controllerfriend;
+  var _controllerfriend = TextEditingController();
 
 
 
@@ -76,7 +76,7 @@ class _FriendFinderState extends State<FriendFinder> {
                       ),
                       onPressed: () async {
                         found=false;
-                        _controllerfriend.clear();
+
 
                         for (var i = 0; i < all_users.length; i++) {    //Search the list for username to be found
                           if (all_users[i].username == friend_id) {
@@ -119,7 +119,7 @@ class _FriendFinderState extends State<FriendFinder> {
                       ),
                       onPressed: () async {
                         Home.members.add(friend_id);
-
+                        _controllerfriend.clear();
                         //Function call of friend method
                       }
                   ),),
