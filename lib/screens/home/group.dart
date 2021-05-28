@@ -310,7 +310,9 @@ class _GroupState extends State<Group> {
                           style: TextStyle(color: Colors.pink, fontFamily: 'Comics'),
                         ),
                         onPressed: () async {
-                          Group.main_bill = bill;
+                          for(int i = 0; i < bill.length;i++) {
+                            Group.main_bill.insert(i, bill[i]);
+                          }
                           Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => Bill()));
